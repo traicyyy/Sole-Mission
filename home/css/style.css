@@ -65,8 +65,23 @@ nav ul li a:hover {
     color: white;  
 }
 
+.hero h1 {
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.hero-services, .hero-featured {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;  
+}
+
 .hero-services {
-    background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/bg4.png') no-repeat center center/cover;
+    background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/bg2.png') no-repeat center center/cover;
 }
 
 .hero-featured {
@@ -126,11 +141,77 @@ h1 {
     padding-top: 50px;
 }
 
-.section:nth-child(even) {
+.section:nth-of-type(even) {
     background: #ddd;
 }
 
 h2 {
     font-size: 36px;
 }
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 20px;
+    position: relative;
+    z-index: 2; /* Ensures content is above the overlay */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .services-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-box {
+        width: 90%; /* Allows it to fit better on mobile */
+    }
+}
+
+
+.services-container h2 {
+    font-size: 36px;
+}
+
+.service-box {
+    background: #0c3b7a;
+    color: white;
+    width: 350px;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.service-header {
+    position: absolute;
+    top: -25px; /* Slightly higher to avoid overlap */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #aac2ff;
+    color: black;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 18px;
+    min-width: 60%; /* Ensures it doesn't shrink on smaller screens */
+    text-align: center;
+}
+
+.service-content h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.service-content p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+
+
 
