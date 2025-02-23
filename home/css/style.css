@@ -44,7 +44,7 @@ nav ul li a {
 
 .hero {
     position: relative;
-    background: url('home/images/bg.png') no-repeat center center/cover; /* Fixed path */
+    background: url('images/bg.png') no-repeat center center/cover; /* Fixed path */
     height: 100vh;
     display: flex;
     align-items: center;
