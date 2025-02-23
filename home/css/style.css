@@ -1,7 +1,6 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/home/images/bg.png')no-repeat center center fixed;
 }
 
 header {
@@ -25,14 +24,16 @@ nav {
     width: auto;
 }
 
-.logo span {
-    color: #ccc;
-}
-
 nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    list-style: none;
 }
 
 nav ul li a {
@@ -43,7 +44,7 @@ nav ul li a {
 
 .hero {
     position: relative;
-    background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/bg.png') no-repeat center center/cover;
+    background: url('../home/images/bg.png') no-repeat center center/cover; /* Fixed path */
     height: 100vh;
     display: flex;
     align-items: center;
