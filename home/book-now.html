@@ -3,95 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sole Mission</title>
+    <title>Book Now</title>
     <link rel="stylesheet" href="css/book-now.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body>
 
     <div id="app">
-        <div class="form-container">
-            <h2>Book a Service</h2>
-            <form @submit.prevent="submitForm">
+        <div class="form-wrapper">
+            <div class="form-container">
+                <h2>Book a Service</h2>
+                <form @submit.prevent="submitForm">
+                    <label>First Name</label>
+                    <input type="text" v-model="firstName" required>
 
-                <!-- Customer Information -->
-                <label>First Name</label>
-                <input type="text" v-model="form.firstName" required>
+                    <label>Last Name</label>
+                    <input type="text" v-model="lastName" required>
 
-                <label>Last Name</label>
-                <input type="text" v-model="form.lastName" required>
+                    <label>Contact Number</label>
+                    <input type="tel" v-model="contactNumber" required>
 
-                <label>Contact Number</label>
-                <input type="tel" v-model="form.contact" required>
+                    <label>Email</label>
+                    <input type="email" v-model="email" required>
 
-                <label>Email</label>
-                <input type="email" v-model="form.email" required>
+                    <label>Service Type</label>
+                    <select v-model="serviceType" @change="updateServiceOptions" required>
+                        <option value="">Select Service Type</option>
+                        <option value="Cleaning">Cleaning</option>
+                        <option value="Restoration">Restoration</option>
+                    </select>
 
-                <!-- Address Fields -->
-                <label>House Number</label>
-                <input type="text" v-model="form.houseNumber" required>
+                    <label>Service Name</label>
+                    <select v-model="serviceName" @change="calculateTotal" required>
+                        <option value="">Select Service</option>
+                        <option v-for="(price, name) in availableServices" :value="name">{{ name }}</option>
+                    </select>
 
-                <label>Street</label>
-                <input type="text" v-model="form.street" required>
+                    <label>Number of Items</label>
+                    <input type="number" v-model.number="numItems" min="1" @input="calculateTotal" required>
 
-                <label>Barangay</label>
-                <input type="text" v-model="form.barangay" required>
+                    <label>Total Payment</label>
+                    <input type="text" v-model="totalPayment" readonly>
 
-                <label>City/Municipality</label>
-                <input type="text" v-model="form.city" required>
+                    <label>Payment Method</label>
+                    <select v-model="paymentMethod" required>
+                        <option value="Cash">Cash</option>
+                        <option value="Gcash">Gcash</option>
+                        <option value="Bank Transfer">Bank Transfer</option>
+                        <option value="PayMaya">PayMaya</option>
+                    </select>
 
-                <label>Province</label>
-                <input type="text" v-model="form.province" required>
+                    <label>Delivery Type</label>
+                    <select v-model="deliveryType" required>
+                        <option value="Store Pickup">Store Pickup</option>
+                        <option value="Door to Door">Door to Door</option>
+                    </select>
 
-                <label>Postal Code</label>
-                <input type="text" v-model="form.postalCode" required>
-
-                <!-- Service Selection -->
-                <label>Service Type</label>
-                <select v-model="form.serviceType" @change="updateServiceOptions">
-                    <option value="">Select Service Type</option>
-                    <option value="Cleaning">Cleaning</option>
-                    <option value="Restoration">Restoration</option>
-                </select>
-
-                <label>Service Name</label>
-                <select v-model="form.serviceName" @change="updatePrice">
-                    <option value="">Select Service</option>
-                    <option v-for="service in availableServices" :value="service.name">{{ service.name }}</option>
-                </select>
-
-                <label>Number of Items</label>
-                <input type="number" v-model="form.items" min="1" @input="calculateTotal">
-
-                <!-- Total Payment -->
-                <label>Total Payment</label>
-                <input type="text" v-model="form.totalPayment" readonly>
-
-                <!-- Payment Details -->
-                <label>Payment Date</label>
-                <input type="date" v-model="form.paymentDate" required>
-
-                <label>Payment Method</label>
-                <select v-model="form.paymentMethod">
-                    <option value="Cash">Cash</option>
-                    <option value="Gcash">Gcash</option>
-                    <option value="Bank Transfer">Bank Transfer</option>
-                    <option value="PayMaya">PayMaya</option>
-                </select>
-
-                <label>Delivery Type</label>
-                <select v-model="form.deliveryType">
-                    <option value="Store Pickup">Store Pickup</option>
-                    <option value="Door to Door">Door to Door</option>
-                </select>
-
-                <!-- Submit Button -->
-                <button type="submit">Submit Booking</button>
-            </form>
+                    <button type="submit">Submit Booking</button>
+                </form>
+            </div>
         </div>
     </div>
 
     <script src="script.js"></script>
+
 </body>
 </html>
