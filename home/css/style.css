@@ -145,7 +145,7 @@ nav ul li a:hover {
 .services-container {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 100px;
     padding: 50px 20px;
     position: relative;
     z-index: 2;
