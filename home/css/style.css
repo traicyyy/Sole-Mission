@@ -239,13 +239,6 @@ nav ul li a:hover {
     color: #111;
 }
 
-.services-container2 h3 {
-    font-size: 26px;
-    font-weight: bold;
-    margin-top: 10px;
-    color: #111;
-}
-
 .service-box2 {
     width: 250px;
     background: #F8F9FA;
@@ -269,7 +262,7 @@ nav ul li a:hover {
     padding: 15px;
 }
 
-.service-text2 h4 {
+.service-text2 h3 {
     font-size: 18px;
     color: #111;
     margin-bottom: 10px;
