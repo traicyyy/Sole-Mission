@@ -76,7 +76,7 @@ nav ul li a:hover {
 }
 
 
-.hero-services, .hero-featured {
+.hero-services, .hero-gallery {
     position: relative;
     height: 100vh;
     display: flex;
@@ -286,7 +286,7 @@ nav ul li a:hover {
 }
 
 /* * GALLERY * */
-.our-works {
+#our-works {
     text-align: center;
     padding: 50px 20px;
     background: #fff;
