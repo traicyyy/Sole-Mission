@@ -286,29 +286,84 @@ nav ul li a:hover {
 }
 
 /* * GALLERY * */
-.section-title {
-    font-size: 68px;
-    font-weight: bold;
-    margin-bottom: 30px;
-    color: #f8d20f;
+.gallery-slider {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+    text-align: center;
 }
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    justify-items: center;
-}
-
-.gallery-item {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.gallery-item img {
-    width: 100%;
-    max-width: 350px;
+.gallery-slider .slider-container {
+    position: relative;
+    max-width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
     border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: #fff;
+}
+
+.gallery-slider .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.gallery-slider .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.gallery-slider .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.gallery-slider .gallery img {
+    width: calc(33.33% - 10px);
+    max-width: 150px;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.gallery-slider .gallery img:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .gallery-slider .gallery img {
+        width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-slider .gallery img {
+        width: calc(100% - 10px);
+    }
+}
+
+.gallery-slider .navigation {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.gallery-slider .navigation button {
+    padding: 10px 15px;
+    border: none;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.gallery-slider .navigation button:hover {
+    background: #0056b3;
 }
