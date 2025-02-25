@@ -14,6 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentSlide = 0;
     const slides = document.querySelector('.slides');
     const totalSlides = document.querySelectorAll('.slide').length;
+    
+    if (!slides) {
+        console.error("Error: '.slides' element not found");
+        return;
+    }
 
     function showSlide(index) {
         if (index >= totalSlides) {
@@ -27,12 +32,14 @@ document.addEventListener("DOMContentLoaded", function () {
         slides.style.transform = `translateX(-${currentSlide * 100}%)`;
     }
 
-    // Event Listeners for Slide Navigation
-    document.querySelector(".prev-slide")?.addEventListener("click", function () {
+    function prevSlide() {
         showSlide(currentSlide - 1);
-    });
+    }
 
-    document.querySelector(".next-slide")?.addEventListener("click", function () {
+    function nextSlide() {
         showSlide(currentSlide + 1);
-    });
+    }
+
+    document.querySelector(".prev-slide")?.addEventListener("click", prevSlide);
+    document.querySelector(".next-slide")?.addEventListener("click", nextSlide);
 });
