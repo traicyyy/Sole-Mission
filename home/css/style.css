@@ -149,6 +149,7 @@ nav ul li a:hover {
     background: #ddd;
 }
 
+/* * SERVICES AND PRICELIST * */
 .services-container {
     display: flex;
     justify-content: center;
@@ -180,6 +181,8 @@ nav ul li a:hover {
     text-align: center;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
     position: relative;
+    margin-top: 0px;
+    margin-bottom: 100px
 }
 
 .service-box:hover {
@@ -211,7 +214,7 @@ nav ul li a:hover {
     margin: 5px 0;
 }
 
-/* * Services section * */
+/* * SERVICES* */
 #services {
     text-align: center;
     padding: 60px 20px;
@@ -235,7 +238,7 @@ nav ul li a:hover {
     font-weight: bold;
     color: #0f75f8;
     margin-bottom: 20px;
-    margin-top: 40px; /* Adds spacing above each title */
+    margin-top: 40px;
     text-shadow: 2px 2px 10px rgb(0 0 0 / 3%);
 }
 
@@ -244,8 +247,8 @@ nav ul li a:hover {
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
-    max-width: 1200px; /* Set a max width to limit the spread */
-    margin: 0 auto; /* Center the container */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .service-box2 {
@@ -280,4 +283,13 @@ nav ul li a:hover {
 .service-text2 p {
     font-size: 14px;
     color: #555;
+}
+
+/* * GALERRY * */
+.gallery-title {
+    font-size: 68px;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    padding-bottom: 20px;
 }
