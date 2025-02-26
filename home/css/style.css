@@ -285,19 +285,48 @@ nav ul li a:hover {
     color: #555;
 }
 .slider-container {
-    width: 100%;
-    overflow: hidden;
     position: relative;
+    width: 80%;
+    max-width: 800px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
+
 .slider {
     display: flex;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    white-space: nowrap;
 }
+
 .slide {
-    min-width: 100%;
-    box-sizing: border-box;
+    flex: 0 0 100%;
+    text-align: center;
 }
-.slider img {
+
+.slide img {
     width: 100%;
-    display: block;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Navigation Buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
