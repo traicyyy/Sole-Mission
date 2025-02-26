@@ -51,8 +51,9 @@ body {
     max-width: 120px;
     height: auto;
     display: block;
-    margin: auto;
+    object-fit: cover;
 }
+
 
 .service-info {
     flex: 2;

@@ -285,7 +285,27 @@ nav ul li a:hover {
     color: #555;
 }
 
+/* * SERVICES button* */
+.book-now-link {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #004aad;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.book-now-link:hover {
+    color: #002766;
+    text-decoration: underline;
+}
+
+
 /* * GALLERY * */
+#gallery {
+    background-color: #fff;
+}
+
 .slider-container {
     position: relative;
     width: 80%;

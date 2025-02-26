@@ -9,6 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
             link.classList.remove("active");
         }
     });
+
+    // Add event listeners to service booking buttons
+    const bookNowButtons = document.querySelectorAll(".book-now-btn");
+    bookNowButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            window.location.href = "book-now.html";
+        });
+    });
 });
 
 // Gallery slider function
@@ -33,4 +41,3 @@ function moveSlide(direction) {
     slider.style.transition = "transform 0.5s ease-in-out";
     slider.style.transform = `translateX(${offset}%)`;
 }
-
