@@ -320,14 +320,7 @@ nav ul li a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-}
-
-.gallery-slider .gallery img {
-    width: calc(33.33% - 10px);
-    max-width: 150px;
-    border-radius: 5px;
-    transition: transform 0.3s;
+    gap: 40px;
 }
 
 .gallery-slider .gallery img:hover {
@@ -335,8 +328,8 @@ nav ul li a:hover {
 }
 
 .gallery-slider .gallery img {
-    width: calc(60.33% - 10px); 
-    max-width: 400px; 
+    width: calc(65.33% - 10px); /* Make images bigger */
+    max-width: 460px; /* Increase max width */
     border-radius: 5px;
     transition: transform 0.3s;
 }
