@@ -1,17 +1,18 @@
 body {
     font-family: 'Montserrat', sans-serif;
     background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/b4.png') no-repeat center center/cover;
+    background-attachment: fixed;
     text-align: center;
     margin: 0;
     padding: 0;
 }
 
 .services-container {
-    padding: 40px 20px;
+    padding: 0 20px;
 }
 
 .services-title {
-    font-size: 2rem;
+    font-size: 60px;
     margin-bottom: 20px;
     font-weight: 700;
     text-align: center;
@@ -75,17 +76,28 @@ body {
     margin-top: 10px;
 }
 
-.book-now-btn {
-    display: inline-block;
-    padding: 8px 12px;
-    background: #007bff;
-    color: white;
+/* Text-based button */
+.text-button {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #003B2B;
     text-decoration: none;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    margin-top: 10px;
+    transition: color 0.3s ease;
 }
 
-.book-now-btn:hover {
-    background: #0056b3;
+.text-button:hover {
+    color: #007bff;
+}
+
+.text-button svg {
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.text-button:hover svg {
+    transform: translateX(3px);
 }
