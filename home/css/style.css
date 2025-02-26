@@ -284,27 +284,20 @@ nav ul li a:hover {
     font-size: 14px;
     color: #555;
 }
-
-.gallery-carousel {
-    width: 90%;
-    max-width: 600px;
+.slider-container {
+    width: 100%;
     overflow: hidden;
     position: relative;
 }
-.carousel {
+.slider {
     display: flex;
-    gap: 10px;
-    cursor: grab;
-    scroll-behavior: smooth;
-    overflow-x: auto;
-    scrollbar-width: none;
+    transition: transform 0.3s ease-in-out;
 }
-.carousel::-webkit-scrollbar {
-    display: none;
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
 }
-.carousel img {
-    width: 200px;
-    border-radius: 10px;
-    user-select: none;
-    pointer-events: none;
+.slider img {
+    width: 100%;
+    display: block;
 }
