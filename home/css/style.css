@@ -217,8 +217,9 @@ nav ul li a:hover {
 /* * SERVICES* */
 #services {
     text-align: center;
-    padding: 60px 20px;
-    background-color: #fff;
+    padding: 80px 20px;
+    background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/b4.png') no-repeat center center/cover;
+    background-attachment: fixed;
 }
 
 .services-header2 {
@@ -287,19 +288,18 @@ nav ul li a:hover {
 
 /* * SERVICES button* */
 .book-now-link {
-    display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     color: #004aad;
     text-decoration: none;
     transition: color 0.3s ease-in-out;
+    padding-left: 110px;
 }
 
 .book-now-link:hover {
     color: #002766;
     text-decoration: underline;
 }
-
 
 /* * GALLERY * */
 #gallery {
