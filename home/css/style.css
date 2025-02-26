@@ -287,35 +287,33 @@ nav ul li a:hover {
 
 /* * GALLERY * */
 .slider-container {
-    width: 100%;
-    max-width: 800px; /* Adjust as needed */
-    margin: auto;
     position: relative;
+    width: 80%;
+    max-width: 800px;
     overflow: hidden;
-}
-
-.slider-wrapper {
-    position: relative;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .slider {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    width: 400%; /* Assuming 4 slides */
+    white-space: nowrap;
 }
 
 .slide {
-    min-width: 100%;
-    box-sizing: border-box;
+    flex: 0 0 100%;
+    text-align: center;
 }
 
 .slide img {
     width: 100%;
     height: auto;
+    border-radius: 10px;
 }
 
-/* Navigation buttons */
-button.prev, button.next {
+/* Navigation Buttons */
+.prev, .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -324,18 +322,13 @@ button.prev, button.next {
     border: none;
     padding: 10px 15px;
     cursor: pointer;
-    font-size: 18px;
-    z-index: 10;
+    font-size: 24px;
+    border-radius: 50%;
 }
 
-button.prev {
-    left: 10px;
-}
+.prev { left: 10px; }
+.next { right: 10px; }
 
-button.next {
-    right: 10px;
-}
-
-button:hover {
+.prev:hover, .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }

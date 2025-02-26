@@ -19,17 +19,18 @@ function moveSlide(direction) {
     const slides = document.querySelectorAll(".slide");
     const totalSlides = slides.length;
 
-    if (!slider || totalSlides === 0) return; // Safety check
+    if (!slider || totalSlides === 0) return;
 
     currentIndex += direction;
 
     if (currentIndex < 0) {
-        currentIndex = totalSlides - 1; // Go to last slide
+        currentIndex = totalSlides - 1;
     } else if (currentIndex >= totalSlides) {
-        currentIndex = 0; // Go to first slide
+        currentIndex = 0;
     }
 
-    let offset = -currentIndex * 100; // Move slider
+    let offset = -currentIndex * 100;
+    slider.style.transition = "transform 0.5s ease-in-out";
     slider.style.transform = `translateX(${offset}%)`;
 }
 
