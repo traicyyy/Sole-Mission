@@ -284,34 +284,38 @@ nav ul li a:hover {
     font-size: 14px;
     color: #555;
 }
+
+/* * GALLERY * */
 .slider-container {
+    width: 100%;
+    max-width: 800px; /* Adjust as needed */
+    margin: auto;
     position: relative;
-    width: 80%;
-    max-width: 800px;
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.slider-wrapper {
+    position: relative;
 }
 
 .slider {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    white-space: nowrap;
+    width: 400%; /* Assuming 4 slides */
 }
 
 .slide {
-    flex: 0 0 100%;
-    text-align: center;
+    min-width: 100%;
+    box-sizing: border-box;
 }
 
 .slide img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
 }
 
-/* Navigation Buttons */
-.prev, .next {
+/* Navigation buttons */
+button.prev, button.next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -320,13 +324,18 @@ nav ul li a:hover {
     border: none;
     padding: 10px 15px;
     cursor: pointer;
-    font-size: 24px;
-    border-radius: 50%;
+    font-size: 18px;
+    z-index: 10;
 }
 
-.prev { left: 10px; }
-.next { right: 10px; }
+button.prev {
+    left: 10px;
+}
 
-.prev:hover, .next:hover {
+button.next {
+    right: 10px;
+}
+
+button:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
