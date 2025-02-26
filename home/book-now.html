@@ -26,21 +26,25 @@
 
                     <label>Email</label>
                     <input type="email" v-model="email" required>
+                    
+                    <label>Shoe Brand & Model (Optional)</label>
+                    <input type="text" v-model="shoeBrandModel">
 
-                    <label>Service Type</label>
-                    <select v-model="serviceType" @change="updateServiceOptions" required>
-                        <option value="">Select Service Type</option>
+
+                    <label for="serviceType">Select Service Type:</label>
+                    <select v-model="serviceType" @change="updateServiceNames" required>
+                        <option value="">-- Select --</option>
                         <option value="Cleaning">Cleaning</option>
                         <option value="Restoration">Restoration</option>
                     </select>
 
-                    <label>Service Name</label>
-                    <select v-model="serviceName" @change="calculateTotal" required>
-                        <option value="">Select Service</option>
-                        <option v-for="(price, name) in availableServices" :value="name">{{ name }}</option>
+                    <label for="serviceName">Select Service Name:</label>
+                    <select v-model="serviceName" required>
+                        <option value="">-- Select --</option>
+                        <option v-for="option in serviceOptions" :value="option">{{ option }}</option>
                     </select>
 
-                    <label>Number of Items</label>
+                    <label>Number of Pairs</label>
                     <input type="number" v-model.number="numItems" min="1" @input="calculateTotal" required>
 
                     <label>Total Payment</label>
@@ -60,13 +64,46 @@
                         <option value="Door to Door">Door to Door</option>
                     </select>
 
+                    <div v-if="deliveryType === 'Door to Door'">
+                        <h4>Enter Delivery Address</h4>
+                        <label>Street:</label>
+                        <input type="text" v-model="address.street" required />
+
+                        <label>City:</label>
+                        <input type="text" v-model="address.city" required />
+
+                        <label>Postal Code:</label>
+                        <input type="text" v-model="address.postalCode" required />
+                    </div>
+
+                    <label>Message / Inquiry (Optional)</label>
+                    <input v-model="message" placeholder="Leave a message...">
+
+                    <div class="terms-box-container">
+                        <h3>Terms and Conditions :</h3>
+                        <div class="terms-box">
+                            <p>Please review the following terms and condition below: </p>
+                            <p>a. We have the right to suspend delivery/pick-up subject to weather conditions and other travel restrictions.</p>
+                            <p>b. The items shall be carried at the sole risk of the Client. The Client hereby indemnifies Doctor Leather against all liability of whatsoever nature, arising from the process. </p>
+                            <p>c. 50% of the total cost from the quotation shall be paid via cash or credit card for pick-up, or Paypall or Bank Deposit for Delivery. Full payment shall be given after the service. </p>
+                            <p>d. Local deliveries are made from Monday - Friday, 10am - 4pm for residential addresses. </p>
+                            <p>e. The client must be present at your local delivery address to accept the item(s), otherwise, items will not be delivered and will be rescheduled for the next available date; a re-delivery fee will apply.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="terms-container">
+                        <input type="checkbox" id="agreeToTerms" v-model="agreeToTerms" required>
+                        <label for="agreeToTerms">I agree to the Terms and Conditions</label>
+                    </div>
+
                     <button type="submit">Submit Booking</button>
                 </form>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/book-now.js"></script>
 
 </body>
 </html>
