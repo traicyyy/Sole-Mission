@@ -227,7 +227,7 @@ nav ul li a:hover {
 }
 
 .services-header2 h2 {
-    font-size: 32px;
+    font-size: 35px;
     font-weight: bold;
     margin-top: 10px;
     color: #111;
@@ -235,9 +235,9 @@ nav ul li a:hover {
 
 .services-title {
     text-align: center;
-    font-size: 26px;
+    font-size: 28px;
     font-weight: bold;
-    color: #0f75f8;
+    color: #002fe9;
     margin-bottom: 20px;
     margin-top: 40px;
     text-shadow: 2px 2px 10px rgb(0 0 0 / 3%);
@@ -272,7 +272,8 @@ nav ul li a:hover {
 }
 
 .service-text2 {
-    padding: 15px;
+    padding: 10px;
+    margin-bottom: 10px
 }
 
 .service-text2 h3 {
