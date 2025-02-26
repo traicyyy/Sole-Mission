@@ -1,23 +1,27 @@
-Vue.createApp({
-    setup() {
-        let firstName = Vue.ref("");
-        let lastName = Vue.ref("");
-        let contactNumber = Vue.ref("");
-        let email = Vue.ref("");
-        let shoeBrandModel = Vue.ref("");
-        let serviceType = Vue.ref("");
-        let serviceName = Vue.ref("");
-        let numItems = Vue.ref(1);
-        let totalPayment = Vue.ref("₱0");
-        let paymentMethod = Vue.ref("");
-        let deliveryType = Vue.ref("Store Pickup");
-        let address = Vue.reactive({ street: "", city: "", postalCode: "" });
-        let serviceOptions = Vue.ref([]);
-        let message = Vue.ref("");
-        let agreeToTerms = Vue.ref(false);
-        
+const { createApp, ref, reactive } = Vue;
 
-        let services = {
+createApp({
+    setup() {        
+        const firstName = ref("");
+        const lastName = ref("");
+        const contactNumber = ref("");
+        const email = ref("");
+        const shoeBrandModel = ref("");
+        const serviceType = ref("");
+        const serviceName = ref("");
+        const numItems = ref(1);
+        const totalPayment = ref("₱0");
+        const paymentMethod = ref("");
+        const deliveryType = ref("");
+        const address = reactive({
+            street: "",
+            city: "",
+            postalCode: ""
+        });
+        const message = ref("");
+        const agreeToTerms = ref(false);
+        
+        const services = {
             Cleaning: {
                 "Deep Clean": 350,
                 "Sole Unyellowing": 750
@@ -33,7 +37,7 @@ Vue.createApp({
             }
         };
 
-        let availableServices = Vue.computed(() => services[serviceType.value] || {});
+        const serviceOptions = ref([]);
 
         function updateServiceNames() {
             if (serviceType.value === "Cleaning") {
@@ -47,65 +51,36 @@ Vue.createApp({
                     "Sole Stitch",
                     "Partial Repaint",
                     "Partial Reglue"
-                ];
+                    ];
             } else {
                 serviceOptions.value = [];
             }
-            serviceName.value = "";
-        }
-
-        function updateServiceOptions() {
-            serviceName.value = "";
-            totalPayment.value = "₱0";
         }
 
         function calculateTotal() {
-            if (serviceName.value && numItems.value > 0) {
-                let basePrice = services[serviceType.value][serviceName.value];
-                let expectedTotal = `₱${(basePrice * numItems.value).toLocaleString()}`;
-                if (totalPayment.value === "" || totalPayment.value === `₱${basePrice.toLocaleString()}`) {
-                    totalPayment.value = expectedTotal
-                }
-            }
-        }
-
-        async function submitForm() {
-
-            if (!agreeToTerms.value) {
-                alert("You must agree to the terms and conditions before submitting.");
-                return;
-            }
-
-            let supabase = supabase.createClient("YOUR_SUPABASE_URL", "YOUR_SUPABASE_ANON_KEY");
-
-            let { error } = await supabase.from("bookings").insert([
-                {
-                    first_name: firstName.value,
-                    last_name: lastName.value,
-                    contact_number: contactNumber.value,
-                    email: email.value,
-                    shoe_brand_model: shoeBrandModel.value,
-                    service_type: serviceType.value,
-                    service_name: serviceName.value,
-                    num_items: numItems.value,
-                    total_payment: totalPayment.value,
-                    payment_method: paymentMethod.value,
-                    delivery_type: deliveryType.value,
-                    address_street: address.value.street,
-                    address_city: address.value.city,
-                    address_postal_code: address.value.postalCode,
-                    
-                }
-            ]);
-
+            let prices = {
+                Cleaning: {
+                    "Deep Clean": 350,
+                    "Sole Unyellowing": 750                    
+                },
+                
+                Restoration: {
+                    "Full Repaint": 1200,
+                    "Full Outsole Reglue": 1200,
+                    "Full Midsole Reglue": 1500,
+                    "Sole Replacement": 3500,
+                    "Sole Stitch": 300,
+                    "Partial Repaint": 300,
+                    "Partial Reglue": 400                    
+                }                
+            };
             
-            if (error) {
-                alert("Error booking service: " + error.message);
-            } else {
-                alert("Booking submitted successfully!");
-                resetForm();
-            }
+            if (serviceType.value && serviceName.value && prices[serviceType.value] && prices[serviceType.value][serviceName.value]) {
+                totalPayment.value = prices[serviceType.value][serviceName.value] * numItems.value;
+            }            
         }
+
+
 
         function resetForm() {
             firstName.value = "";
@@ -116,14 +91,20 @@ Vue.createApp({
             serviceType.value = "";
             serviceName.value = "";
             numItems.value = 1;
-            totalPayment.value = "₱0";
+            totalPayment.value = "";
             paymentMethod.value = "";
-            deliveryType.value = "Store Pickup";
-            address.value = { street: "", city: "", postalCode: "" };
-            serviceOptions.value = [];
+            deliveryType.value = "";
+            address.street = "";
+            address.city = "";
+            address.postalCode = "";
             message.value = "";
             agreeToTerms.value = false;
-            
+            serviceOptions.value = [];
+        }
+
+        function submitForm() {
+            alert("Booking submitted successfully!");
+            resetForm();
         }
 
         return {
@@ -139,11 +120,10 @@ Vue.createApp({
             paymentMethod,
             deliveryType,
             address,
-            serviceOptions,
             message,
             agreeToTerms,
+            serviceOptions,
             updateServiceNames,
-            updateServiceOptions,
             calculateTotal,
             submitForm
         };

@@ -25,7 +25,7 @@ body {
     align-items: center;
 }
 
-/* Terms & Conditions Box */
+
 .terms-box-container {
     width: 100%;
     margin-top: 10px;
@@ -46,8 +46,8 @@ body {
     box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 14px;
     padding: 10px;
-    max-height: 150px; /* Prevents terms from taking too much space */
-    overflow-y: auto; /* Scrollable terms */
+    max-height: 150px; 
+    overflow-y: auto;
 }
 
 .terms-box p {
