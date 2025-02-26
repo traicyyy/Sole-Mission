@@ -10,36 +10,36 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Gallery Slider Functionality
-    let currentSlide = 0;
-    const slides = document.querySelector('.slides');
-    const totalSlides = document.querySelectorAll('.slide').length;
-    
-    if (!slides) {
-        console.error("Error: '.slides' element not found");
-        return;
+    // Image slider functionality
+    const slider = document.querySelector('.image-slider');
+    if (slider) {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll-fast
+            slider.scrollLeft = scrollLeft - walk;
+        });
     }
-
-    function showSlide(index) {
-        if (index >= totalSlides) {
-            currentSlide = 0;
-        } else if (index < 0) {
-            currentSlide = totalSlides - 1;
-        } else {
-            currentSlide = index;
-        }
-
-        slides.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
-
-    function prevSlide() {
-        showSlide(currentSlide - 1);
-    }
-
-    function nextSlide() {
-        showSlide(currentSlide + 1);
-    }
-
-    document.querySelector(".prev-slide")?.addEventListener("click", prevSlide);
-    document.querySelector(".next-slide")?.addEventListener("click", nextSlide);
 });

@@ -285,74 +285,26 @@ nav ul li a:hover {
     color: #555;
 }
 
-/* * GALLERY * */
-.gallery-slider {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #f5f5f5;
-    text-align: center;
-}
-
-.gallery-slider .slider-container {
-    position: relative;
-    max-width: 80%;
-    margin: 20px auto;
+.gallery-carousel {
+    width: 90%;
+    max-width: 600px;
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    background: #fff;
+    position: relative;
 }
-
-.gallery-slider .slides {
+.carousel {
     display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.gallery-slider .slide {
-    min-width: 100%;
-    box-sizing: border-box;
-    padding: 20px;
-}
-
-.gallery-slider .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 75px;
-}
-
-.gallery-slider .gallery img:hover {
-    transform: scale(1.1);
-}
-
-.gallery-slider .gallery img {
-    width: calc(65.33% - 10px); /* Make images bigger */
-    max-width: 460px; /* Increase max width */
-    border-radius: 5px;
-    transition: transform 0.3s;
-}
-
-
-.gallery-slider .navigation {
-    display: flex;
-    justify-content: center;
     gap: 10px;
-    margin: 10px 0;
+    cursor: grab;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    scrollbar-width: none;
 }
-
-.gallery-slider .navigation button {
-    padding: 10px 15px;
-    border: none;
-    background: #007bff;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background 0.3s;
+.carousel::-webkit-scrollbar {
+    display: none;
 }
-
-.gallery-slider .navigation button:hover {
-    background: #0056b3;
+.carousel img {
+    width: 200px;
+    border-radius: 10px;
+    user-select: none;
+    pointer-events: none;
 }
