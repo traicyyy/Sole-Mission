@@ -2,48 +2,87 @@ body {
     font-family: 'Montserrat', sans-serif;
     background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/b4.png') no-repeat center center/cover;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 .services-container {
-    padding: 20px;
+    padding: 40px 20px;
 }
 
 .services-title {
     font-size: 2rem;
     margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.services-wrapper {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px;
+    gap: 20px;
+    white-space: nowrap;
 }
 
 .service-card {
-    background: #fff;
-    padding: 15px;
-    margin: 15px auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
-.service-card img {
+.service-image {
+    background: #18349B;
+    padding: 20px;
+    border-radius: 12px;
+    flex: 1;
+}
+
+.service-image img {
     width: 100%;
+    max-width: 120px;
     height: auto;
-    border-radius: 8px;
+    display: block;
+    margin: auto;
 }
 
-.service-card h3 {
-    margin: 10px 0;
+.service-info {
+    flex: 2;
+    text-align: left;
 }
 
-.service-card p {
+.service-info h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.service-info p {
     font-size: 0.9rem;
-    color: #555;
+    color: #333;
+    margin: 5px 0;
+}
+
+.service-info .price {
+    font-weight: 700;
+    margin-top: 10px;
 }
 
 .book-now-btn {
     display: inline-block;
-    padding: 10px 15px;
+    padding: 8px 12px;
     background: #007bff;
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    font-size: 0.9rem;
     margin-top: 10px;
 }
 

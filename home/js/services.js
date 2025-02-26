@@ -15,7 +15,7 @@ const services = [
         name: "Deep Clean",
         image: "images/deep-clean.jpg",
         price: "₱350",
-        description: "Thorough cleaning of uppers, midsoles, insoles, and outsoles for a fresh look.",
+        description: "A thorough cleaning of uppers, midsoles, outsoles, insoles, sockliners, and laces to remove dirt and stains.",
     },
     {
         name: "Sole Unyellowing",
@@ -32,11 +32,15 @@ services.forEach(service => {
     serviceCard.classList.add("service-card");
 
     serviceCard.innerHTML = `
-        <img src="${service.image}" alt="${service.name}">
-        <h3>${service.name}</h3>
-        <p>${service.description}</p>
-        <p><strong>${service.price}</strong></p>
-        <a href="book-now.html" class="book-now-btn">Book Now</a>
+        <div class="service-image">
+            <img src="${service.image}" alt="${service.name}">
+        </div>
+        <div class="service-info">
+            <h3>${service.name}</h3>
+            <p>${service.description}</p>
+            <p class="price">Starts at ${service.price}</p>
+            <a href="book-now.html" class="book-now-btn">Book Now →</a>
+        </div>
     `;
 
     servicesList.appendChild(serviceCard);
