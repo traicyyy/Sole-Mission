@@ -388,26 +388,30 @@ nav ul li a:hover {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 100;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgb(0 0 0 / 69%);
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: auto; /* Ensures scrolling if content is too long */
+    padding: 20px;
 }
 
 /* Modal Content */
 .modal-content {
     background: white;
     padding: 20px;
-    width: 50%;
+    width: 100%;
     max-width: 500px;
     border-radius: 10px;
-    text-align: center;
+    text-align: justify;
     position: relative;
+    max-height: 80vh; /* Limits height to prevent overflow */
+    overflow-y: auto; /* Enables scrolling for long content */
 }
 
 /* Close Button */
@@ -417,6 +421,12 @@ nav ul li a:hover {
     right: 15px;
     font-size: 24px;
     cursor: pointer;
+    color: black; /* Ensures visibility */
+    background: white; /* Adds contrast */
+    padding: 5px 10px;
+    border-radius: 50%;
+    border: 1px solid black;
 }
+
 
 
