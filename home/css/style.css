@@ -366,7 +366,7 @@ nav ul li a:hover {
     flex-wrap: wrap;
     max-width: 1200px;
     margin: auto;
-    gap: 80px;
+    gap: 65px;
   }
   .footer-logo img {
     max-width: 200px;
