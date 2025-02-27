@@ -406,7 +406,7 @@ nav ul li a:hover {
 .modal-content {
     background: #f5f3f5;
     padding: 30px;
-    width: 400%;
+    width: 90%;
     max-width: 700px;
     height: 550px;
     border-radius: 10px;
@@ -416,6 +416,7 @@ nav ul li a:hover {
     overflow-y: auto;
 }
 
+/* Close Button */
 .close {
     position: absolute;
     top: 15px;
@@ -429,6 +430,24 @@ nav ul li a:hover {
     border: 1px solid black;
 }
 
-#termsModal {
-    display: none;
+/* Navigation Buttons */
+.modal-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
 }
+
+.nav-btn {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.nav-btn:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+

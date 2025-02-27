@@ -78,30 +78,60 @@ document.addEventListener("DOMContentLoaded", function () {
         autoScroll = setInterval(autoSlide, 3000);
     }
 
-    // TERMS AND CONDITIONS MODAL
-    const modal = document.getElementById("termsModal");
-    const openBtn = document.getElementById("openTerms");
-    const closeBtn = document.querySelector(".close");
-
-    if (modal) {
-        modal.style.display = "none";
-
-        if (openBtn && closeBtn) {
-            openBtn.addEventListener("click", function (event) {
-                event.preventDefault();
-                modal.style.display = "flex";
+        const modal = document.getElementById("termsModal");
+        const openBtn = document.getElementById("openTerms");
+        const closeBtn = document.querySelector(".close");
+        const termsPages = document.querySelectorAll(".terms-page");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        let currentIndex = 0;
+    
+        function updateModalPage() {
+            termsPages.forEach((page, index) => {
+                page.style.display = index === currentIndex ? "block" : "none";
             });
-
-            closeBtn.addEventListener("click", function () {
-                modal.style.display = "none";
-            });
-
-            // Close modal when clicking outside
-            window.addEventListener("click", function (event) {
-                if (event.target === modal) {
+    
+            prevBtn.disabled = currentIndex === 0;
+            nextBtn.disabled = currentIndex === termsPages.length - 1;
+        }
+    
+        if (modal) {
+            modal.style.display = "none";
+    
+            if (openBtn && closeBtn) {
+                openBtn.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    modal.style.display = "flex";
+                    currentIndex = 0;
+                    updateModalPage();
+                });
+    
+                closeBtn.addEventListener("click", function () {
                     modal.style.display = "none";
+                });
+    
+                // Close modal when clicking outside
+                window.addEventListener("click", function (event) {
+                    if (event.target === modal) {
+                        modal.style.display = "none";
+                    }
+                });
+            }
+    
+            // Navigation event listeners
+            prevBtn.addEventListener("click", function () {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateModalPage();
+                }
+            });
+    
+            nextBtn.addEventListener("click", function () {
+                if (currentIndex < termsPages.length - 1) {
+                    currentIndex++;
+                    updateModalPage();
                 }
             });
         }
-    }
-});
+    });
+    
