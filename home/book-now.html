@@ -15,85 +15,86 @@
             <div class="form-container">
                 <h2>Book a Service</h2>
                 <form @submit.prevent="submitForm">
-                    <label>First Name</label>
-                    <input type="text" v-model="firstName" required>
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" v-model="firstName" required>
 
-                    <label>Last Name</label>
-                    <input type="text" v-model="lastName" required>
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" v-model="lastName" required>
 
-                    <label>Contact Number</label>
-                    <input type="tel" v-model="contactNumber" required>
+                    <label for="contactNumber">Contact Number</label>
+                    <input type="tel" id="contactNumber" v-model="contactNumber" required>
 
-                    <label>Email</label>
-                    <input type="email" v-model="email" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" v-model="email" required>
                     
-                    <label>Shoe Brand & Model (Optional)</label>
-                    <input type="text" v-model="shoeBrandModel">
+                    <label for="shoeBrandModel">Shoe Brand & Model (Optional)</label>
+                    <input type="text" id="shoeBrandModel" v-model="shoeBrandModel">
 
-
-                    <label for="serviceType">Select Service Type:</label>
-                    <select v-model="serviceType" @change="updateServiceNames" required>
+                    <label for="serviceType">Select Service Type</label>
+                    <select id="serviceType" v-model="serviceType" @change="updateServiceNames" required>
                         <option value="">-- Select --</option>
                         <option value="Cleaning">Cleaning</option>
                         <option value="Restoration">Restoration</option>
                     </select>
 
-                    <label for="serviceName">Select Service Name:</label>
-                    <select v-model="serviceName" required>
+                    <label for="serviceName">Select Service Name</label>
+                    <select id="serviceName" v-model="serviceName" required>
                         <option value="">-- Select --</option>
                         <option v-for="option in serviceOptions" :value="option">{{ option }}</option>
                     </select>
 
-                    <label>Number of Pairs</label>
-                    <input type="number" v-model.number="numItems" min="1" @input="calculateTotal" required>
+                    <label for="numItems">Number of Pairs</label>
+                    <input type="number" id="numItems" v-model.number="numItems" min="1" @input="calculateTotal" required>
 
-                    <label>Total Payment</label>
-                    <input type="text" v-model="totalPayment" readonly>
+                    <label for="totalPayment">Total Payment</label>
+                    <input type="text" id="totalPayment" v-model="totalPayment" readonly>
 
-                    <label>Payment Method</label>
-                    <select v-model="paymentMethod" required>
+                    <label for="paymentMethod">Payment Method</label>
+                    <select id="paymentMethod" v-model="paymentMethod" required>
                         <option value="Cash">Cash</option>
                         <option value="Gcash">Gcash</option>
                         <option value="Bank Transfer">Bank Transfer</option>
                         <option value="PayMaya">PayMaya</option>
                     </select>
 
-                    <label>Delivery Type</label>
-                    <select v-model="deliveryType" required>
+                    <label for="deliveryType">Delivery Type</label>
+                    <select id="deliveryType" v-model="deliveryType" required>
                         <option value="Store Pickup">Store Pickup</option>
                         <option value="Door to Door">Door to Door</option>
                     </select>
 
                     <div v-if="deliveryType === 'Door to Door'">
                         <h4>Enter Delivery Address</h4>
-                        <label>Street:</label>
-                        <input type="text" v-model="address.street" required />
+                        <label for="street">Street:</label>
+                        <input type="text" id="street" v-model="address.street" required>
 
-                        <label>City:</label>
-                        <input type="text" v-model="address.city" required />
+                        <label for="city">City:</label>
+                        <input type="text" id="city" v-model="address.city" required>
 
-                        <label>Postal Code:</label>
-                        <input type="text" v-model="address.postalCode" required />
+                        <label for="postalCode">Postal Code:</label>
+                        <input type="text" id="postalCode" v-model="address.postalCode" required>
                     </div>
 
-                    <label>Message / Inquiry (Optional)</label>
-                    <input v-model="message" placeholder="Leave a message...">
+                    <label for="message">Message / Inquiry (Optional)</label>
+                    <input id="message" v-model="message" placeholder="Leave a message...">
 
                     <div class="terms-box-container">
                         <h3>Terms and Conditions :</h3>
                         <div class="terms-box">
-                            <p>Please review the following terms and condition below: </p>
+                            <p>Please review the following terms and conditions below: </p>
                             <p>a. We have the right to suspend delivery/pick-up subject to weather conditions and other travel restrictions.</p>
                             <p>b. The items shall be carried at the sole risk of the Client. The Client hereby indemnifies Doctor Leather against all liability of whatsoever nature, arising from the process. </p>
-                            <p>c. 50% of the total cost from the quotation shall be paid via cash or credit card for pick-up, or Paypall or Bank Deposit for Delivery. Full payment shall be given after the service. </p>
+                            <p>c. 50% of the total cost from the quotation shall be paid via cash or credit card for pick-up, or PayPal or Bank Deposit for Delivery. Full payment shall be given after the service. </p>
                             <p>d. Local deliveries are made from Monday - Friday, 10am - 4pm for residential addresses. </p>
                             <p>e. The client must be present at your local delivery address to accept the item(s), otherwise, items will not be delivered and will be rescheduled for the next available date; a re-delivery fee will apply.</p>
                         </div>
                     </div>
                     
                     <div class="terms-container">
-                        <input type="checkbox" id="agreeToTerms" v-model="agreeToTerms" required>
-                        <label for="agreeToTerms">I agree to the Terms and Conditions</label>
+                        <label for="agreeToTerms" class="checkbox-label">
+                            <input type="checkbox" id="agreeToTerms" v-model="agreeToTerms" required>
+                            I agree to the Terms and Conditions
+                        </label>
                     </div>
 
                     <button type="submit">Submit Booking</button>
@@ -104,7 +105,6 @@
 
     <script src="js/script.js"></script>
     <script src="js/book-now.js" defer></script>
-
 
 </body>
 </html>
