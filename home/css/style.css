@@ -88,7 +88,7 @@ nav ul li a:hover {
 .hero-title {
     font-size: 68px;
     font-weight: bold;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    /* text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); */
     margin: 0;
     padding-bottom: 0px;
     color: #c21c09;
@@ -236,7 +236,7 @@ nav ul li a:hover {
     text-align: center;
     padding: 70px;
     background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/bg2.png') no-repeat center center/cover;
-    background-attachment: fixed;
+    
 }
 
 .slider-container {
@@ -244,10 +244,9 @@ nav ul li a:hover {
     width: 100%;
     max-width: 800px;
     overflow: hidden;
-    border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     margin: auto;
-    margin-bottom: 60px
+    margin-bottom: 100px
 }
 
 .slider {
@@ -264,7 +263,6 @@ nav ul li a:hover {
 .slide img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
 }
 
 /* Navigation Buttons */
