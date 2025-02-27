@@ -399,15 +399,16 @@ nav ul li a:hover {
     justify-content: center;
     overflow: auto;
     padding: 20px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 /* Modal Content */
 .modal-content {
-    background: white;
+    background: #f5f3f5;
     padding: 30px;
     width: 400%;
     max-width: 700px;
+    height: 550px;
     border-radius: 10px;
     text-align: justify;
     position: relative;
@@ -417,13 +418,13 @@ nav ul li a:hover {
 
 .close {
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 15px;
     font-size: 24px;
     cursor: pointer;
     color: black;
     background: white;
-    padding: 5px 10px;
+    padding: 2px 10px;
     border-radius: 50%;
     border: 1px solid black;
 }

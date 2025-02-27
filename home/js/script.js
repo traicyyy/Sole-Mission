@@ -84,16 +84,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeBtn = document.querySelector(".close");
 
     if (modal) {
-        modal.style.display = "none"; // Ensure the modal is hidden when the page loads
+        modal.style.display = "none";
 
         if (openBtn && closeBtn) {
             openBtn.addEventListener("click", function (event) {
                 event.preventDefault();
-                modal.style.display = "flex"; // Show the modal
+                modal.style.display = "flex";
             });
 
             closeBtn.addEventListener("click", function () {
-                modal.style.display = "none"; // Hide the modal
+                modal.style.display = "none";
             });
 
             // Close modal when clicking outside
