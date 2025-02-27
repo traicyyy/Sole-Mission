@@ -366,7 +366,7 @@ nav ul li a:hover {
 .footer {
     background-color: #0c3b7a;
     color: #f5f3f5;
-    padding: 40px;
+    padding: 50px 60px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
