@@ -397,7 +397,7 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: auto; /* Ensures scrolling if content is too long */
+    overflow: auto;
     padding: 20px;
     margin-top: 30px;
 }
@@ -411,8 +411,8 @@ nav ul li a:hover {
     border-radius: 10px;
     text-align: justify;
     position: relative;
-    max-height: 80vh; /* Limits height to prevent overflow */
-    overflow-y: auto; /* Enables scrolling for long content */
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 /* Close Button */
@@ -422,8 +422,8 @@ nav ul li a:hover {
     right: 15px;
     font-size: 24px;
     cursor: pointer;
-    color: black; /* Ensures visibility */
-    background: white; /* Adds contrast */
+    color: black;
+    background: white;
     padding: 5px 10px;
     border-radius: 50%;
     border: 1px solid black;
