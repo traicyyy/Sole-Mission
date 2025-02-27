@@ -366,9 +366,10 @@ nav ul li a:hover {
     flex-wrap: wrap;
     max-width: 1200px;
     margin: auto;
+    gap: 80px;
   }
   .logo img {
-    max-width: 150px;
+    max-width: 200px;
   }
   .description {
     max-width: 300px;
@@ -459,5 +460,3 @@ nav ul li a:hover {
 }
 
 
-
->>>>>>> 3cbbca976c94cac2f46d8046ca61dae7c646314a
