@@ -38,6 +38,11 @@ createApp({
         };
 
         const serviceOptions = ref([]);
+        
+        function goBack() {
+            window.history.back();
+            
+        }
 
         function updateServiceNames() {
             if (serviceType.value === "Cleaning") {
@@ -105,9 +110,11 @@ createApp({
         function submitForm() {
             alert("Booking submitted successfully!");
             resetForm();
+            window.location.href = "index.html";
         }
 
         return {
+            goBack,
             firstName,
             lastName,
             contactNumber,

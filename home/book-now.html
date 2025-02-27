@@ -13,6 +13,7 @@
     <div id="app">
         <div class="form-wrapper">
             <div class="form-container">
+                <span class="back-arrow" @click="goBack">‹</span>
                 <h2>Book a Service</h2>
                 <form @submit.prevent="submitForm">
                     <label>First Name</label>
@@ -102,7 +103,7 @@
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
     <script src="js/book-now.js" defer></script>
 
 </body>

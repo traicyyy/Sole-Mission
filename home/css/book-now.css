@@ -12,7 +12,7 @@ body {
 }
 
 .form-wrapper {
-    width: 150%;
+    width: 100%;
     max-width: 600px;
     height: 70vh;
     overflow-y: auto;
@@ -25,7 +25,7 @@ body {
     align-items: center;
 }
 
-
+/* Terms & Conditions Box */
 .terms-box-container {
     width: 100%;
     margin-top: 10px;
@@ -46,8 +46,8 @@ body {
     box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 14px;
     padding: 10px;
-    max-height: 150px; 
-    overflow-y: auto;
+    max-height: 150px; /* Prevents terms from taking too much space */
+    overflow-y: auto; /* Scrollable terms */
 }
 
 .terms-box p {
@@ -67,6 +67,21 @@ body {
     height: 16px;
     cursor: pointer;
 }
+
+.back-arrow {
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 3vh;
+    left: 5vw;
+    color: #333;
+}
+
+.back-arrow:hover {
+    color: #0c3b7a;
+}
+
 
 h2 {
     text-align: center;
