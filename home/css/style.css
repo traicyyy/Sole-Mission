@@ -91,7 +91,8 @@ nav ul li a:hover {
     font-weight: bold;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     margin: 0;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
+    color: #f8270f;
 }
 
 .hero-services {
@@ -149,70 +150,6 @@ nav ul li a:hover {
     background: #ddd;
 }
 
-/* * SERVICES AND PRICELIST * */
-.services-container {
-    display: flex;
-    justify-content: center;
-    gap: 100px;
-    padding: 50px 20px;
-    position: relative;
-    z-index: 2;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-    .services-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .service-box {
-        width: 90%;
-    }
-}
-
-.service-box {
-    background: #0c3b7a;
-    color: white;
-    width: 400px;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-    position: relative;
-    margin-top: 0px;
-    margin-bottom: 100px
-}
-
-.service-box:hover {
-    transform: translateY(-5px);
-}
-
-.service-header {
-    position: absolute;
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #aac2ff;
-    color: black;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-size: 20px;
-    min-width: 60%;
-    text-align: center;
-}
-
-.service-content h3 {
-    font-size: 22px;
-    margin: 10px 0;
-}
-
-.service-content p {
-    font-size: 18px;
-    margin: 5px 0;
-}
 
 /* * SERVICES* */
 #services {
@@ -312,12 +249,13 @@ nav ul li a:hover {
 
 .slider-container {
     position: relative;
-    width: 80%;
+    width: 100%;
     max-width: 800px;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     margin: auto;
+    margin-bottom: 60px
 }
 
 .slider {
