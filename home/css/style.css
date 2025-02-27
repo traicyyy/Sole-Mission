@@ -303,9 +303,6 @@ nav ul li a:hover {
 }
 
 /* * GALLERY * */
-#gallery {
-    background-color: #fff;
-}
 
 .slider-container {
     position: relative;
@@ -353,3 +350,54 @@ nav ul li a:hover {
 .prev:hover, .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
+
+/* * GALLERY2 * */
+#gallery {
+    background-color: #fff;
+}
+
+.gallery-section {
+    overflow: hidden;
+    width: 100%;
+    background-color: #fff; /* Adjust background if needed */
+    padding: 20px 0;
+}
+
+.gallery-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.gallery {
+    display: flex;
+    gap: 20px; /* Adjust spacing between images */
+    animation: scrollGallery 20s linear infinite;
+    width: max-content;
+}
+
+.gallery img {
+    width: 250px; /* Adjust size */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Keyframes for continuous scrolling */
+@keyframes scrollGallery {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Duplicate images to create an infinite loop effect */
+.gallery::after {
+    content: "";
+    display: flex;
+}
+
+
