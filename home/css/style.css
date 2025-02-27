@@ -316,11 +316,11 @@ nav ul li a:hover {
 .slider {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    width: 200%; /* Adjust to fit 2 images per slide */
+    width: 400%; /* Adjust based on the number of slides */
 }
 
 .slide {
-    flex: 0 0 50%; /* 2 images per view */
+    flex: 0 0 100%; /* One image per slide */
     text-align: center;
 }
 
@@ -342,6 +342,7 @@ nav ul li a:hover {
     cursor: pointer;
     font-size: 24px;
     border-radius: 50%;
+    z-index: 10;
 }
 
 .prev { left: 10px; }
@@ -351,45 +352,7 @@ nav ul li a:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-/*footer*/
-
-  footer {
-    background-color: #0c3b7a;
-    color: #f8f7f2;
-    text-align: center;
-    padding: 40px 0;
-  }
-  .footer-content {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: auto;
-    gap: 65px;
-  }
-  .footer-logo img {
-    max-width: 200px;
-  }
-  .description {
-    max-width: 300px;
-    font-style: italic;
-  }
-  .contact-info p {
-    margin: 5px 0;
-  }
-  .social-media a {
-    margin: 0 10px;
-  }
-  .social-media img {
-    width: 40px;
-    height: 40px;
-  }
-  .footer-bottom {
-    margin-top: 20px;
-  }
-
-/* Indicator Dots */
+/* Dots Container */
 .dots-container {
     text-align: center;
     margin-top: 10px;
@@ -398,15 +361,16 @@ nav ul li a:hover {
 .dot {
     height: 12px;
     width: 12px;
-    margin: 0 5px;
+    margin: 5px;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .dot.active {
-    background-color: #0f75f8;
+    background-color: #333;
 }
 
 

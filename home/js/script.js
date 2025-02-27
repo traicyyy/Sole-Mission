@@ -19,51 +19,60 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // GALLERY SLIDER FUNCTION
-    const slides = document.querySelectorAll(".slide");
-    const dots = document.querySelectorAll(".dot");
-    const sliderContainer = document.querySelector(".slider-container");
     const slider = document.querySelector(".slider");
+    const slides = document.querySelectorAll(".slide");
+    const prevButton = document.querySelector(".prev");
+    const nextButton = document.querySelector(".next");
+    const dotsContainer = document.querySelector(".dots-container");
     let slideIndex = 0;
     let autoScroll;
 
-    // Only run if gallery exists
-    if (slides.length > 0 && slider && dots.length > 0) {
-        function updateSlider() {
-            slider.style.transform = `translateX(${-slideIndex * 100}%)`;
-            
-            dots.forEach(dot => dot.classList.remove("active"));
-            dots[slideIndex].classList.add("active");
-        }
+    // Generate dots dynamically
+    slides.forEach((_, index) => {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        dot.addEventListener("click", () => jumpToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
 
-        function moveSlide(step) {
-            slideIndex += step;
-            if (slideIndex < 0) slideIndex = dots.length - 1;
-            if (slideIndex >= dots.length) slideIndex = 0;
-            updateSlider();
-        }
+    const dots = document.querySelectorAll(".dot");
 
-        function jumpToSlide(index) {
-            slideIndex = index;
-            updateSlider();
-        }
-
-        function autoSlide() {
-            moveSlide(1);
-        }
-
-        // Auto-scroll every 5 seconds
-        autoScroll = setInterval(autoSlide, 5000);
-
-        // Pause auto-scroll when hovering over the gallery
-        sliderContainer.addEventListener("mouseenter", () => {
-            clearInterval(autoScroll);
-        });
-
-        sliderContainer.addEventListener("mouseleave", () => {
-            autoScroll = setInterval(autoSlide, 5000);
-        });
-
-        // Initialize slider
-        updateSlider();
+    function updateSlider() {
+        slider.style.transform = `translateX(${-slideIndex * 100}%)`;
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[slideIndex].classList.add("active");
     }
+
+    function moveSlide(step) {
+        slideIndex += step;
+        if (slideIndex < 0) slideIndex = slides.length - 1;
+        if (slideIndex >= slides.length) slideIndex = 0;
+        updateSlider();
+        resetAutoScroll();
+    }
+
+    function jumpToSlide(index) {
+        slideIndex = index;
+        updateSlider();
+        resetAutoScroll();
+    }
+
+    function autoSlide() {
+        moveSlide(1);
+    }
+
+    function resetAutoScroll() {
+        clearInterval(autoScroll);
+        autoScroll = setInterval(autoSlide, 2000);
+    }
+
+    prevButton.addEventListener("click", () => moveSlide(-1));
+    nextButton.addEventListener("click", () => moveSlide(1));
+
+    document.querySelector(".slider-container").addEventListener("mouseenter", () => clearInterval(autoScroll));
+    document.querySelector(".slider-container").addEventListener("mouseleave", resetAutoScroll);
+
+    // Initialize slider
+    updateSlider();
+    autoScroll = setInterval(autoSlide, 2000);
 });
