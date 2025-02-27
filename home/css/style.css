@@ -399,14 +399,15 @@ nav ul li a:hover {
     justify-content: center;
     overflow: auto; /* Ensures scrolling if content is too long */
     padding: 20px;
+    margin-top: 30px;
 }
 
 /* Modal Content */
 .modal-content {
     background: white;
-    padding: 20px;
-    width: 100%;
-    max-width: 500px;
+    padding: 30px;
+    width: 400%;
+    max-width: 700px;
     border-radius: 10px;
     text-align: justify;
     position: relative;
@@ -427,6 +428,3 @@ nav ul li a:hover {
     border-radius: 50%;
     border: 1px solid black;
 }
-
-
-
