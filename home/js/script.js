@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Navigation link active state
     const navLinks = document.querySelectorAll(".nav-link");
-
     navLinks.forEach((link) => {
         if (link.href === window.location.href) {
             link.classList.add("active");
@@ -27,75 +26,82 @@ document.addEventListener("DOMContentLoaded", function () {
     let slideIndex = 0;
     let autoScroll;
 
-    // Generate dots dynamically
-    slides.forEach((_, index) => {
-        const dot = document.createElement("span");
-        dot.classList.add("dot");
-        dot.addEventListener("click", () => jumpToSlide(index));
-        dotsContainer.appendChild(dot);
-    });
+    if (slider && slides.length > 0 && prevButton && nextButton && dotsContainer) {
+        // Generate dots dynamically
+        slides.forEach((_, index) => {
+            const dot = document.createElement("span");
+            dot.classList.add("dot");
+            dot.addEventListener("click", () => jumpToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
 
-    const dots = document.querySelectorAll(".dot");
+        const dots = document.querySelectorAll(".dot");
 
-    function updateSlider() {
-        slider.style.transform = `translateX(${-slideIndex * 100}%)`;
-        dots.forEach(dot => dot.classList.remove("active"));
-        dots[slideIndex].classList.add("active");
-    }
+        function updateSlider() {
+            slider.style.transform = `translateX(${-slideIndex * 100}%)`;
+            dots.forEach(dot => dot.classList.remove("active"));
+            dots[slideIndex].classList.add("active");
+        }
 
-    function moveSlide(step) {
-        slideIndex += step;
-        if (slideIndex < 0) slideIndex = slides.length - 1;
-        if (slideIndex >= slides.length) slideIndex = 0;
+        function moveSlide(step) {
+            slideIndex = (slideIndex + step + slides.length) % slides.length;
+            updateSlider();
+            resetAutoScroll();
+        }
+
+        function jumpToSlide(index) {
+            slideIndex = index;
+            updateSlider();
+            resetAutoScroll();
+        }
+
+        function autoSlide() {
+            moveSlide(1);
+        }
+
+        function resetAutoScroll() {
+            clearInterval(autoScroll);
+            autoScroll = setInterval(autoSlide, 3000);
+        }
+
+        prevButton.addEventListener("click", () => moveSlide(-1));
+        nextButton.addEventListener("click", () => moveSlide(1));
+
+        const sliderContainer = document.querySelector(".slider-container");
+        if (sliderContainer) {
+            sliderContainer.addEventListener("mouseenter", () => clearInterval(autoScroll));
+            sliderContainer.addEventListener("mouseleave", resetAutoScroll);
+        }
+
+        // Initialize slider
         updateSlider();
-        resetAutoScroll();
-    }
-
-    function jumpToSlide(index) {
-        slideIndex = index;
-        updateSlider();
-        resetAutoScroll();
-    }
-
-    function autoSlide() {
-        moveSlide(1);
-    }
-
-    function resetAutoScroll() {
-        clearInterval(autoScroll);
         autoScroll = setInterval(autoSlide, 3000);
     }
-
-    prevButton.addEventListener("click", () => moveSlide(-1));
-    nextButton.addEventListener("click", () => moveSlide(1));
-
-    document.querySelector(".slider-container").addEventListener("mouseenter", () => clearInterval(autoScroll));
-    document.querySelector(".slider-container").addEventListener("mouseleave", resetAutoScroll);
-
-    // Initialize slider
-    updateSlider();
-    autoScroll = setInterval(autoSlide, 3000);
 
     // TERMS AND CONDITIONS MODAL
     const modal = document.getElementById("termsModal");
     const openBtn = document.getElementById("openTerms");
     const closeBtn = document.querySelector(".close");
 
-    if (modal && openBtn && closeBtn) {
-        openBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            modal.style.display = "flex";
-        });
+    if (modal) {
+        modal.style.display = "none"; // Ensure the modal is hidden when the page loads
 
-        closeBtn.addEventListener("click", function () {
-            modal.style.display = "none";
-        });
+        if (openBtn && closeBtn) {
+            openBtn.addEventListener("click", function (event) {
+                event.preventDefault();
+                modal.style.display = "flex"; // Show the modal
+            });
 
-        // Close modal when clicking outside
-        window.addEventListener("click", function (event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        });
+            closeBtn.addEventListener("click", function () {
+                modal.style.display = "none"; // Hide the modal
+            });
+
+            // Close modal when clicking outside
+            window.addEventListener("click", function (event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        }
     }
 });
