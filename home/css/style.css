@@ -234,7 +234,7 @@ nav ul li a:hover {
 /* * GALLERY * */
 #gallery {
     text-align: center;
-    padding: 80px 20px;
+    padding: 70px;
     background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/bg2.png') no-repeat center center/cover;
     background-attachment: fixed;
 }

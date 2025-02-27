@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function resetAutoScroll() {
         clearInterval(autoScroll);
-        autoScroll = setInterval(autoSlide, 2000);
+        autoScroll = setInterval(autoSlide, 3000);
     }
 
     prevButton.addEventListener("click", () => moveSlide(-1));
@@ -74,5 +74,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Initialize slider
     updateSlider();
-    autoScroll = setInterval(autoSlide, 2000);
+    autoScroll = setInterval(autoSlide, 3000);
 });
