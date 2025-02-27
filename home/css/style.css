@@ -83,7 +83,6 @@ nav ul li a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #f8d20f;
 }
 
 .hero-title {
@@ -93,14 +92,6 @@ nav ul li a:hover {
     margin: 0;
     padding-bottom: 0px;
     color: #c21c09;
-}
-
-.hero-services {
-    background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/bg2.png') no-repeat center center/cover;
-}
-
-.hero-gallery {
-    background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/bg3.png') no-repeat center center/cover;
 }
 
 .overlay {
@@ -243,7 +234,7 @@ nav ul li a:hover {
 #gallery {
     text-align: center;
     padding: 80px 20px;
-    background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/b4.png') no-repeat center center/cover;
+    background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/bg2.png') no-repeat center center/cover;
     background-attachment: fixed;
 }
 
