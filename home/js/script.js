@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+    window.scrollTo(0, 0);
+
     // Navigation link active state
     const navLinks = document.querySelectorAll(".nav-link");
     navLinks.forEach((link) => {
@@ -84,12 +86,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const termsPages = document.querySelectorAll(".terms-page");
         const prevBtn = document.getElementById("prevBtn");
         const nextBtn = document.getElementById("nextBtn");
+        const modalContent = document.querySelector(".modal-content");
         let currentIndex = 0;
     
         function updateModalPage() {
             termsPages.forEach((page, index) => {
                 page.style.display = index === currentIndex ? "block" : "none";
             });
+    
+            // Scroll to the top of the modal content when changing pages
+            modalContent.scrollTop = 0;
     
             prevBtn.disabled = currentIndex === 0;
             nextBtn.disabled = currentIndex === termsPages.length - 1;
