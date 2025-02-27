@@ -75,4 +75,27 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initialize slider
     updateSlider();
     autoScroll = setInterval(autoSlide, 3000);
+
+    // TERMS AND CONDITIONS MODAL
+    const modal = document.getElementById("termsModal");
+    const openBtn = document.getElementById("openTerms");
+    const closeBtn = document.querySelector(".close");
+
+    if (modal && openBtn && closeBtn) {
+        openBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            modal.style.display = "flex";
+        });
+
+        closeBtn.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    }
 });
