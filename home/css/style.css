@@ -351,6 +351,43 @@ nav ul li a:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+/*footer*/
+
+  footer {
+    background-color: #2e528f;
+    color: #f8f7f2;
+    text-align: center;
+    padding: 40px 0;
+  }
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+  }
+  .logo img {
+    max-width: 150px;
+  }
+  .description {
+    max-width: 300px;
+    font-style: italic;
+  }
+  .contact-info p {
+    margin: 5px 0;
+  }
+  .social-media a {
+    margin: 0 10px;
+  }
+  .social-media img {
+    width: 40px;
+    height: 40px;
+  }
+  .footer-bottom {
+    margin-top: 20px;
+  }
+
 /* Indicator Dots */
 .dots-container {
     text-align: center;
@@ -422,3 +459,5 @@ nav ul li a:hover {
 }
 
 
+
+>>>>>>> 3cbbca976c94cac2f46d8046ca61dae7c646314a
