@@ -149,6 +149,12 @@ nav ul li a:hover {
     background: #ddd;
 }
 
+
+#profile {
+    background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/bg4.png') no-repeat center center/cover;
+}
+
+
 /* * SERVICES AND PRICELIST * */
 .services-container {
     display: flex;
@@ -355,4 +361,8 @@ nav ul li a:hover {
 
 .gallery-slider .navigation button:hover {
     background: #0056b3;
+}
+
+#aboutus {
+    background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/aboutUs-bg.png') no-repeat center center/cover;
 }
