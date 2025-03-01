@@ -149,7 +149,6 @@ body, html {
     cursor: pointer;
 }
 
-
 .back-arrow {
     cursor: pointer;
     background: none;
@@ -169,11 +168,6 @@ body, html {
     transform: scale(1.2);
     filter: brightness(0) invert(1);
 }
-
-.logo {
-    height: 80px;
-}
-
 
 h2 {
     text-align: center;
