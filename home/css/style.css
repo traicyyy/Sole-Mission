@@ -544,6 +544,8 @@ textarea {
     border: 1px solid #ddd;
     border-radius: 5px;
     box-sizing: border-box;
+    resize: vertical;
+    min-height: 100px;
 }
 
 button {
