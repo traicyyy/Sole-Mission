@@ -422,11 +422,13 @@ nav ul li a:hover {
 .about-text h2 {
     font-size: 2.5rem;
     margin-bottom: 15px;
+    color: white;
 }
 
 .about-text p {
-    font-size: 1rem;
+    font-size: 16px;
     line-height: 1.6;
+    color: white;
 }
 
 .about-tag {
