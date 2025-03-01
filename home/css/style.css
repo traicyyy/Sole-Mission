@@ -475,6 +475,12 @@ nav ul li a:hover {
 }
 
 
+/* FEEDBACK */
+#feedback {
+    background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/feedback-bg.png') no-repeat center center/cover;
+
+}
+
 .form-wrapper {
     display: flex;
     justify-content: center;
