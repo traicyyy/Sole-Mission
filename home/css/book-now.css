@@ -156,6 +156,7 @@ body, html {
     padding: 0;
     margin-right: 20px;
     transition: transform 0.2s ease;
+    margin-top: 15px;
 }
 
 .back-arrow img {
@@ -172,7 +173,7 @@ body, html {
 h2 {
     text-align: center;
     color: #0c3b7a;
-    margin-top: 0px;
+    margin-top: 25px;
 }
 
 label, h4, .form-label {
