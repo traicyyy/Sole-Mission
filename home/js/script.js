@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.scrollTo(0, 0);
 
-    // Navigation link active state
+
     const navLinks = document.querySelectorAll(".nav-link");
     navLinks.forEach((link) => {
         if (link.href === window.location.href) {
@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Add event listeners to service booking buttons
     const bookNowButtons = document.querySelectorAll(".book-now-btn");
     bookNowButtons.forEach(button => {
         button.addEventListener("click", function () {
@@ -23,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // GALLERY SLIDER FUNCTION
     const slider = document.querySelector(".slider");
     const slides = document.querySelectorAll(".slide");
     const prevButton = document.querySelector(".prev");
@@ -33,14 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
     let autoScroll;
 
     if (slider && slides.length > 0 && prevButton && nextButton && dotsContainer) {
-        // Generate dots dynamically
         slides.forEach((_, index) => {
             const dot = document.createElement("span");
             dot.classList.add("dot");
             dot.addEventListener("click", () => jumpToSlide(index));
             dotsContainer.appendChild(dot);
         });
-
         const dots = document.querySelectorAll(".dot");
 
         function updateSlider() {
@@ -144,4 +140,79 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     });
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll(".star").forEach(star => {
+            star.addEventListener("click", function() {
+                document.querySelectorAll(".star").forEach(s => s.textContent = "⭐");
+                let rating = this.getAttribute("data-value");
+                for (let i = 0; i < rating; i++) {
+                    document.querySelectorAll(".star")[i].textContent = "🌟";
+                }
+                document.getElementById("reviewForm").setAttribute("data-rating", rating);
+            });
+        });
+        
+        document.getElementById("submitBtn").addEventListener("click", function() {
+            let name = document.getElementById("name").value;
+            let rating = document.getElementById("reviewForm").getAttribute("data-rating") || "0";
+            let comments = document.getElementById("comments").value;
+            let reviewHTML = `<div class='border p-3 rounded mb-2 shadow-md'>
+                <strong>${name || "Anonymous"}</strong> - ${"🌟".repeat(rating)}
+                <p>${comments || "No comments provided."}</p>
+            </div>`;
+            document.getElementById("reviews").innerHTML += reviewHTML;
+        });
+        loadReviews();
+    });
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    loadReviews();
+});
+
+function loadReviews() {
+    const reviews = JSON.parse(localStorage.getItem("soleMissionReviews")) || [];
+    const reviewsContainer = document.getElementById("reviews");
+    reviewsContainer.innerHTML = "";
+
+    reviews.forEach(review => {
+        const reviewHTML = `<div class='border p-3 rounded mb-2 shadow-md'>
+            <strong>${review.name || "Anonymous"}</strong> - ${"🌟".repeat(review.rating)}
+            <p>${review.comments || "No comments provided."}</p>
+        </div>`;
+        reviewsContainer.innerHTML += reviewHTML;
+    });
+}
+
+document.querySelectorAll(".star").forEach(star => {
+    star.addEventListener("click", function() {
+        document.querySelectorAll(".star").forEach(s => s.textContent = "⭐");
+        let rating = this.getAttribute("data-value");
+        for (let i = 0; i < rating; i++) {
+            document.querySelectorAll(".star")[i].textContent = "🌟";
+        }
+        document.getElementById("reviewForm").setAttribute("data-rating", rating);
+    });
+});
+
+document.getElementById("submitBtn").addEventListener("click", function() {
+    let name = document.getElementById("name").value;
+    let rating = document.getElementById("reviewForm").getAttribute("data-rating") || "0";
+    let comments = document.getElementById("comments").value;
+
+    let reviews = JSON.parse(localStorage.getItem("soleMissionReviews")) || [];
+
+    reviews.push({ name, rating, comments });
+
+    localStorage.setItem("soleMissionReviews", JSON.stringify(reviews));
+
+    loadReviews();
+
+    document.getElementById("name").value = "";
+    document.getElementById("comments").value = "";
+
+    document.querySelectorAll(".star").forEach(s => s.textContent = "⭐");
+    document.getElementById("reviewForm").removeAttribute("data-rating");
+});
     
