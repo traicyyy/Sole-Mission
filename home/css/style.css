@@ -391,6 +391,70 @@ nav ul li a:hover {
     background: #0056b3;
 }
 
-#aboutus {
+/* * About Section * */
+#about {
     background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/testing/home/images/aboutUs-bg.png') no-repeat center center/cover;
 }
+.about-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 0;
+}
+
+.about-section {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.about-text {
+    max-width: 60%;
+    text-align: left;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.about-tag {
+    display: inline-block;
+    background: white;
+    color: #1f3b77;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-text {
+        max-width: 100%;
+    }
+    .about-image img {
+        max-width: 80%;
+    }
+}
+
