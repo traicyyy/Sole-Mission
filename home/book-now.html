@@ -24,9 +24,6 @@
     <div id="app">
         <div class="form-wrapper">
             <div class="form-container">
-                
-                
-
                 <h2>Book a Service</h2>
                 <form @submit.prevent="submitForm">
                     <div class="form-row">
@@ -129,7 +126,7 @@
                     </div>
                     
                     <label>Message / Inquiry (Optional)</label>
-                    <input v-model="message" placeholder="Leave a message...">
+                    <textarea v-model="message" placeholder="Leave a message..."></textarea>
                     
                     <div class="terms-box-container">
                         <h3>Terms and Conditions:</h3>
@@ -152,24 +149,24 @@
                     <div v-if="showConfirmation" class="modal-overlay">
                         <div class="modal">
                             <h3>Booking Confirmation</h3>
-                            <p><strong>Name:</strong> {{ firstName }} {{ lastName }}</p>
-                            <p><strong>Contact Number:</strong> {{ contactNumber }}</p>
-                            <p><strong>Email:</strong> {{ email }}</p>
-                            <p><strong>Shoe Brand & Model:</strong> {{ shoeBrandModel }}</p>
-                            <p><strong>Service Type:</strong> {{ serviceType }}</p>
-                            <p><strong>Service Name:</strong> {{ serviceName }}</p>
-                            <p><strong>Number of Items:</strong> {{ numItems }}</p>
-                            <p><strong>Total Payment:</strong> {{ totalPayment }}</p>
-                            <p><strong>Payment Method:</strong> {{ paymentMethod }}</p>
-                            <p><strong>Delivery Type:</strong> {{ deliveryType }}</p>
-                            <p><strong>Address:</strong> {{ address.street }}, {{ address.city }}, {{ address.postalCode }}</p>
-                            <p><strong>Message:</strong> {{ message }}</p>
-                            
+                            <p>
+                                <strong>Name:</strong> {{ firstName }} {{ lastName }}<br>
+                                <strong>Contact Number:</strong> {{ contactNumber }}<br>
+                                <strong>Email:</strong> {{ email }}<br>
+                                <strong>Shoe Brand & Model:</strong> {{ shoeBrandModel }}<br>
+                                <strong>Service Type:</strong> {{ serviceType }}<br>
+                                <strong>Service Name:</strong> {{ serviceName }}<br>
+                                <strong>Number of Items:</strong> {{ numItems }}<br>
+                                <strong>Total Payment:</strong> {{ totalPayment }}<br>
+                                <strong>Payment Method:</strong> {{ paymentMethod }}<br>
+                                <strong>Delivery Type:</strong> {{ deliveryType }}<br>
+                                <strong>Address:</strong> {{ address.street }}, {{ address.city }}, {{ address.postalCode }}<br>
+                                <strong>Message:</strong> {{ message }}<br>
+                            </p>
                             <div class="modal-buttons">
                                 <button @click="confirmBooking">Confirm Booking</button>
                                 <button @click="showConfirmation = false">Cancel</button>
                             </div>
-                            
                         </div>
                     </div>
                     

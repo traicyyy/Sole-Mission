@@ -71,6 +71,29 @@ createApp({
                 totalPayment.value = `₱${prices[serviceType.value][serviceName.value] * numItems.value}`;
             }            
         }
+        
+        function submitForm() {
+            showConfirmation.value = true;
+        }
+
+        function confirmBooking() {
+            document.querySelector('.modal h3').textContent = "Booking Confirmed!";
+            document.querySelector('.modal p').innerHTML = "<p class='confirmation-message'>Your booking has been confirmed successfully!</p>"; // Added class here
+            document.querySelector('.modal-buttons').innerHTML = '<button class="close-modal-button">Close</button>';
+
+            document.querySelector('.close-modal-button').addEventListener('click', () => {
+                closeModal();
+            });
+
+            showConfirmation.value = true;
+        }
+        
+        
+        function closeModal() {
+            resetForm();
+            showConfirmation.value = false;
+            window.location.href = "index.html";
+        }
 
         function resetForm() {
             firstName.value = "";
@@ -92,16 +115,7 @@ createApp({
             serviceOptions.value = [];
         }
 
-        function submitForm() {
-            showConfirmation.value = true;
-        }
-
-        function confirmBooking() {
-            alert("Booking confirmed successfully!");
-            resetForm();
-            showConfirmation.value = false;
-            window.location.href = "index.html"; 
-        }
+        
 
         return {
             firstName,
@@ -124,7 +138,8 @@ createApp({
             submitForm,
             confirmBooking,
             showConfirmation,
-            goBack  
+            goBack,
+            closeModal,
         };
 
     }
