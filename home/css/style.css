@@ -88,10 +88,10 @@ nav ul li a:hover {
 .hero-title {
     font-size: 68px;
     font-weight: bold;
-    /* text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     margin: 0;
     padding-bottom: 0px;
-    color: #f5f3f5;;
+    color: #ffffff;;
 }
 
 .overlay {
