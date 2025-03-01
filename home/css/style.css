@@ -142,6 +142,29 @@ nav ul li a:hover {
 }
 
 
+/* Tag Line */
+.image-section {
+    width: 100%;
+    height: 55vh;
+    background-image: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/testing/home/images/about1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+    .image-section {
+        height: 30vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-section {
+        height: 25vh;
+    }
+}
+
+
 /* * SERVICES* */
 #services {
     text-align: center;
@@ -532,4 +555,74 @@ button {
 
 button:hover {
     background-color: #002766;
+}
+
+
+/* * About Section * */
+#about {
+    background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/testing/home/images/about-bg.png') no-repeat center center/cover;
+}
+.about-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 0;
+}
+
+.about-section {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.about-text {
+    max-width: 60%;
+    text-align: left;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.about-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: white;
+}
+
+.about-tag {
+    display: inline-block;
+    background: white;
+    color: #1f3b77;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-text {
+        max-width: 100%;
+    }
+    .about-image img {
+        max-width: 80%;
+    }
 }
