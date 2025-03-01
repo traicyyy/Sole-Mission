@@ -159,30 +159,29 @@ body, html {
     cursor: pointer;
 }
 
+
 .back-arrow {
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
-    z-index: 1000;
     background: none;
     border: none;
     padding: 0;
+    margin-right: 20px; /* Adds space between button and logo */
     transition: transform 0.2s ease;
 }
 
-.back-arrow svg {
-    width: 50px;  /* Adjust size */
-    height: 50px; /* Adjust size */
-    transition: transform 0.2s ease, stroke 0.2s ease;
+.back-arrow img {
+    width: 50px; /* Adjust size if needed */
+    height: auto;
+    transition: transform 0.2s ease, filter 0.2s ease;
 }
 
-.back-arrow:hover svg {
-    transform: scale(1.2);  /* Slightly enlarges on hover */
-    stroke: white;  /* Changes arrow color to white */
+.back-arrow:hover img {
+    transform: scale(1.2);
+    filter: brightness(0) invert(1);
+}
+
+.logo {
+    height: 60px; /* Adjust to match your header */
 }
 
 
