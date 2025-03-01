@@ -562,7 +562,7 @@ button:hover {
 
 /* * About Section * */
 #about {
-    background: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/main/home/images/about-bg.png') no-repeat center center/cover;
+    background-color: #1f3c8b;
     background-attachment: fixed;
 }
 .about-container {
