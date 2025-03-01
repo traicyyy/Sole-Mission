@@ -146,7 +146,7 @@ nav ul li a:hover {
 .image-section {
     width: 100%;
     height: 55vh;
-    background-image: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/testing/home/images/about1.png');
+    background-image: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/testing/home/images/tagline.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -479,10 +479,11 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 90%;
     height: auto; 
     margin-top: 40px;
     padding: 20px;
+    margin-left: 36px;
 }
 
 .form-container {
@@ -498,11 +499,12 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 95%;
     height: auto; 
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 40px;
+    margin-left: 17px;
 }
 
 .form-review-container {
