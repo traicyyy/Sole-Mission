@@ -15,12 +15,18 @@
     position: absolute;
     left: 50px;
     cursor: pointer;
+    transition: transform 0.1s ease;
 }
 
 .back-icon img {
     width: 50px;
     height: auto;
 }
+
+.back-icon:hover {
+    transform: scale(1.1);
+}
+
 
 .header-title {
     color: white;
