@@ -152,15 +152,6 @@ nav ul li a:hover {
 /* Tag Line */
 .image-section {
     width: 100%;
-    height: 1000px;
-    background-image: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/testing/home/images/about1.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.image-section {
-    width: 100%;
     height: 55vh;
     background-image: url('https://raw.githubusercontent.com/traicyyy/Sole-Mission/testing/home/images/about1.png');
     background-size: cover;
@@ -168,7 +159,6 @@ nav ul li a:hover {
     background-repeat: no-repeat;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
     .image-section {
         height: 30vh;
