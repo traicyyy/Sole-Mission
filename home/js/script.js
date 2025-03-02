@@ -1,8 +1,8 @@
 // Initialize Supabase client
 const { createClient } = supabase;
 const supabaseClient = createClient(
-    'https://hfpvwihgujhlrpbfjaip.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhmcHZ3aWhndWpobHJwYmZqYWlwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAzODY5NTMsImV4cCI6MjA1NTk2Mjk1M30.mWMKeQR_eHn1CoXWycUdyuAKvNowaZ9Eg_XwxNtfutc'
+    'https://umfamnhqjopxxtovmwsd.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVtZmFtbmhxam9weHh0b3Ztd3NkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA4NTAwNTEsImV4cCI6MjA1NjQyNjA1MX0.YgT0GToWew6lP_noejWbe0FPxmVmHcc9DztbEzmInOs'
 );
 document.addEventListener("DOMContentLoaded", function () {
     if ("scrollRestoration" in history) {
