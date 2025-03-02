@@ -1,3 +1,9 @@
+// Initialize Supabase client
+const { createClient } = supabase;
+const supabaseClient = createClient(
+    'https://hfpvwihgujhlrpbfjaip.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhmcHZ3aWhndWpobHJwYmZqYWlwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDAzODY5NTMsImV4cCI6MjA1NTk2Mjk1M30.mWMKeQR_eHn1CoXWycUdyuAKvNowaZ9Eg_XwxNtfutc'
+);
 document.addEventListener("DOMContentLoaded", function () {
     if ("scrollRestoration" in history) {
         history.scrollRestoration = "manual";
@@ -162,54 +168,76 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Handle form submission
-    document.getElementById("submitBtn").addEventListener("click", async function() {
-        let nameInput = document.getElementById("name");
-        let commentsInput = document.getElementById("comments");
-        let rating = document.getElementById("reviewForm").getAttribute("data-rating") || "0";
+// Replace the submitBtn event listener with this:
+document.getElementById("submitBtn").addEventListener("click", async function() {
+    let nameInput = document.getElementById("name");
+    let commentsInput = document.getElementById("comments");
+    let rating = document.getElementById("reviewForm").getAttribute("data-rating") || "0";
 
-        let name = nameInput.value.trim() || "Anonymous";
-        let comments = commentsInput.value.trim();
+    let name = nameInput.value.trim() || "Anonymous";
+    let comments = commentsInput.value.trim();
 
-        if (rating === "0" || !comments) {
-            alert("Please provide a rating and comment.");
-            return;
-        }
+    if (rating === "0" || !comments) {
+        alert("Please provide a rating and comment.");
+        return;
+    }
 
-        console.log("Submitting review:", { name, rating, comments });
+    try {
+        const { data, error } = await supabaseClient
+            .from('reviews')
+            .insert([
+                {
+                    name: name,
+                    rating: parseInt(rating),
+                    comments: comments
+                }
+            ])
+            .select();
+
+        if (error) throw error;
 
         // Reset form fields
-        nameInput.value = ""; // Clear name field
-        commentsInput.value = ""; // Clear comments field
-        document.getElementById("reviewForm").removeAttribute("data-rating"); // Remove stored rating
-
-        // Reset stars to outline
+        nameInput.value = "";
+        commentsInput.value = "";
+        document.getElementById("reviewForm").removeAttribute("data-rating");
         document.querySelectorAll(".star").forEach(s => s.textContent = "☆");
 
         alert("Feedback submitted successfully!");
         fetchReviews(); // Refresh reviews list
-    });
+    } catch (error) {
+        console.error('Error submitting review:', error);
+        alert('Failed to submit review. Please try again.');
+    }
 });
 
-// Fetch and display reviews (mock function since no Supabase yet)
+
+// Replace the fetchReviews function with this:
 async function fetchReviews() {
-    console.log("Fetching reviews...");
+    try {
+        const { data: reviews, error } = await supabaseClient
+            .from('reviews')
+            .select('*')
+            .order('created_at', { ascending: false });
 
-    // Simulating reviews (empty for now)
-    const reviews = [];
+        if (error) throw error;
 
-    const reviewsContainer = document.getElementById("reviews");
-    
-    if (reviews.length === 0) {
-        reviewsContainer.innerHTML = "<p class='text-gray-500'>There's no review submitted.</p>";
-    } else {
-        reviewsContainer.innerHTML = reviews.map(review => `
-            <div class="border p-4 mb-2 rounded shadow">
-                <strong>${review.name}</strong> - ${"⭐".repeat(review.rating) + "☆".repeat(5 - review.rating)}
-                <p>${review.comments}</p>
-            </div>
-        `).join("");
+        const reviewsContainer = document.getElementById("reviews");
+        
+        if (!reviews || reviews.length === 0) {
+            reviewsContainer.innerHTML = "<p class='text-gray-500'>There's no review submitted.</p>";
+        } else {
+            reviewsContainer.innerHTML = reviews.map(review => `
+                <div class="border p-4 mb-2 rounded shadow">
+                    <strong>${review.name}</strong> - ${"⭐".repeat(review.rating) + "☆".repeat(5 - review.rating)}
+                    <p>${review.comments}</p>
+                    <small class="text-gray-500">${new Date(review.created_at).toLocaleDateString()}</small>
+                </div>
+            `).join("");
+        }
+    } catch (error) {
+        console.error('Error fetching reviews:', error);
+        document.getElementById("reviews").innerHTML = 
+            "<p class='text-red-500'>Error loading reviews. Please try again later.</p>";
     }
 }
-
-
+});
