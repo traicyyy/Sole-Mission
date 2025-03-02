@@ -141,78 +141,75 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
     
-    document.addEventListener("DOMContentLoaded", function() {
-        document.querySelectorAll(".star").forEach(star => {
-            star.addEventListener("click", function() {
-                document.querySelectorAll(".star").forEach(s => s.textContent = "⭐");
-                let rating = this.getAttribute("data-value");
-                for (let i = 0; i < rating; i++) {
-                    document.querySelectorAll(".star")[i].textContent = "🌟";
-                }
-                document.getElementById("reviewForm").setAttribute("data-rating", rating);
-            });
-        });
-        
-        document.getElementById("submitBtn").addEventListener("click", function() {
-            let name = document.getElementById("name").value;
-            let rating = document.getElementById("reviewForm").getAttribute("data-rating") || "0";
-            let comments = document.getElementById("comments").value;
-            let reviewHTML = `<div class='border p-3 rounded mb-2 shadow-md'>
-                <strong>${name || "Anonymous"}</strong> - ${"🌟".repeat(rating)}
-                <p>${comments || "No comments provided."}</p>
-            </div>`;
-            document.getElementById("reviews").innerHTML += reviewHTML;
-        });
-        loadReviews();
+document.addEventListener("DOMContentLoaded", function() {
+    fetchReviews();
+
+    // Ensure stars start as outlines
+    document.querySelectorAll(".star").forEach(star => {
+        star.textContent = "☆"; // Empty star
     });
 
-document.addEventListener("DOMContentLoaded", function() {
+    // Handle star rating selection
+    document.querySelectorAll(".star").forEach(star => {
+        star.addEventListener("click", function() {
+            let rating = this.getAttribute("data-value");
 
-    loadReviews();
+            document.querySelectorAll(".star").forEach((s, index) => {
+                s.textContent = index < rating ? "⭐" : "☆"; // Filled for selected stars, outline for unselected
+            });
+
+            document.getElementById("reviewForm").setAttribute("data-rating", rating);
+        });
+    });
+
+    // Handle form submission
+    document.getElementById("submitBtn").addEventListener("click", async function() {
+        let nameInput = document.getElementById("name");
+        let commentsInput = document.getElementById("comments");
+        let rating = document.getElementById("reviewForm").getAttribute("data-rating") || "0";
+
+        let name = nameInput.value.trim() || "Anonymous";
+        let comments = commentsInput.value.trim();
+
+        if (rating === "0" || !comments) {
+            alert("Please provide a rating and comment.");
+            return;
+        }
+
+        console.log("Submitting review:", { name, rating, comments });
+
+        // Reset form fields
+        nameInput.value = ""; // Clear name field
+        commentsInput.value = ""; // Clear comments field
+        document.getElementById("reviewForm").removeAttribute("data-rating"); // Remove stored rating
+
+        // Reset stars to outline
+        document.querySelectorAll(".star").forEach(s => s.textContent = "☆");
+
+        alert("Feedback submitted successfully!");
+        fetchReviews(); // Refresh reviews list
+    });
 });
 
-function loadReviews() {
-    const reviews = JSON.parse(localStorage.getItem("soleMissionReviews")) || [];
-    const reviewsContainer = document.getElementById("reviews");
-    reviewsContainer.innerHTML = "";
+// Fetch and display reviews (mock function since no Supabase yet)
+async function fetchReviews() {
+    console.log("Fetching reviews...");
 
-    reviews.forEach(review => {
-        const reviewHTML = `<div class='border p-3 rounded mb-2 shadow-md'>
-            <strong>${review.name || "Anonymous"}</strong> - ${"🌟".repeat(review.rating)}
-            <p>${review.comments || "No comments provided."}</p>
-        </div>`;
-        reviewsContainer.innerHTML += reviewHTML;
-    });
+    // Simulating reviews (empty for now)
+    const reviews = [];
+
+    const reviewsContainer = document.getElementById("reviews");
+    
+    if (reviews.length === 0) {
+        reviewsContainer.innerHTML = "<p class='text-gray-500'>There's no review submitted.</p>";
+    } else {
+        reviewsContainer.innerHTML = reviews.map(review => `
+            <div class="border p-4 mb-2 rounded shadow">
+                <strong>${review.name}</strong> - ${"⭐".repeat(review.rating) + "☆".repeat(5 - review.rating)}
+                <p>${review.comments}</p>
+            </div>
+        `).join("");
+    }
 }
 
-document.querySelectorAll(".star").forEach(star => {
-    star.addEventListener("click", function() {
-        document.querySelectorAll(".star").forEach(s => s.textContent = "⭐");
-        let rating = this.getAttribute("data-value");
-        for (let i = 0; i < rating; i++) {
-            document.querySelectorAll(".star")[i].textContent = "🌟";
-        }
-        document.getElementById("reviewForm").setAttribute("data-rating", rating);
-    });
-});
 
-document.getElementById("submitBtn").addEventListener("click", function() {
-    let name = document.getElementById("name").value;
-    let rating = document.getElementById("reviewForm").getAttribute("data-rating") || "0";
-    let comments = document.getElementById("comments").value;
-
-    let reviews = JSON.parse(localStorage.getItem("soleMissionReviews")) || [];
-
-    reviews.push({ name, rating, comments });
-
-    localStorage.setItem("soleMissionReviews", JSON.stringify(reviews));
-
-    loadReviews();
-
-    document.getElementById("name").value = "";
-    document.getElementById("comments").value = "";
-
-    document.querySelectorAll(".star").forEach(s => s.textContent = "⭐");
-    document.getElementById("reviewForm").removeAttribute("data-rating");
-});
-    
